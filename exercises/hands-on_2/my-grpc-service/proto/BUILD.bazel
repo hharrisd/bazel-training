@@ -1,0 +1,13 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
+load("@com_github_grpc_ecosystem_grpc_gateway//bazel:go_proto_library.bzl", "go_proto_library")
+
+proto_library(
+    name = "greeter_proto",
+    srcs = ["greeter.proto"],
+)
+
+go_proto_library(
+    name = "greeter_go_proto",
+    importpath = "example.com/my-grpc-service/proto/greeter",
+    proto = ":greeter_proto",
+)
