@@ -1,0 +1,7 @@
+load("@gazelle//:def.bzl", "gazelle")
+
+# Gazelle configuration
+gazelle(
+    name = "gazelle",
+    prefix = "example.com/modern-bazel-demo",
+)

@@ -1,0 +1,19 @@
+load("@rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_binary(
+    name = "hello",
+    embed = [":hello_lib"],
+    visibility = ["//visibility:public"],
+)
+
+go_library(
+    name = "hello_lib",
+    srcs = ["main.go"],
+    importpath = "example.com/modern-bazel-demo/cmd/hello",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//pkg/calculator",
+        "@org_uber_go_zap//:zap",
+        "@org_uber_go_zap//zapcore",
+    ],
+)

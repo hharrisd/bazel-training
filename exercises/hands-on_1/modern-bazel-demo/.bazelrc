@@ -1,0 +1,11 @@
+# Build in C++ compilation mode by default
+build --compilation_mode=opt
+
+# Use Go modules by default
+build --enable_bzlmod
+
+# Test output should be detailed by default
+test --test_output=all
+
+# Enable more error output
+build --verbose_failures

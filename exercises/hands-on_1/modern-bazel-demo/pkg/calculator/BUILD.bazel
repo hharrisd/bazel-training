@@ -1,0 +1,15 @@
+load("@rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "calculator",
+    srcs = ["calculator.go"],
+    importpath = "example.com/modern-bazel-demo/pkg/calculator",
+    visibility = ["//visibility:public"],
+    deps = ["@org_uber_go_zap//:zap"],
+)
+
+go_test(
+    name = "calculator_test",
+    srcs = ["calculator_test.go"],
+    embed = [":calculator"],
+)
